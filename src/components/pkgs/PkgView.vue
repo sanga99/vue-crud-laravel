@@ -4,8 +4,8 @@
     <div> {{ item.id }}</div>
     <div> {{ item.title }}</div>
     <br>
-    <button>Update</button>&nbsp;
-    <button>Delete</button>
+    <button @click="updateContent">Update</button>&nbsp;
+    <button @click="deleteContent">Delete</button>
   </div>
 </template>
 
@@ -26,6 +26,17 @@ export default {
       .then( res => {
         this.item = res.data.data
       })
+  },
+  methods: {
+    updateContent(){
+      this.$router.push({
+        path: `/pkgs/update/${this.$route.params.id}`
+      })
+    },
+    deleteContent(){
+     
+    },
+
   },
 }
 </script>
