@@ -25,7 +25,16 @@ export default {
   },
   methods: {
     updateContent(){
-      this.updtateContent = this.content;
+        const updtateContent = { title: this.content };
+                                // 객체 형태로 보내야함. ( laravel-tutorial 프로젝트의 Controller@update 와 연결)
+      axios.patch(`http://192.168.0.189:8082/api/v1/prods/${this.$route.params.id}`, updtateContent)
+        .then((res) => {
+            alert(res.data);
+            this.$router.push(`/prods/${this.$route.params.id}`);
+        })
+        .catch(err => {
+            throw err;
+        })
 
     },
   },
