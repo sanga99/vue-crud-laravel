@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2>Prods</h2>
+      <h2>Vehicles</h2>
      <table style="margin-left:350px; text-align: center;">
          <thead>
              <tr>
@@ -11,7 +11,10 @@
          <tbody>
              <tr v-for="(item, index) in datas" :key="index">
                  <td>{{ item.id }}</td>
-                 <td>{{ item.title }}</td>
+                <router-link :to="'/vehicles/'+item.id">
+                            <!--  v-bind 해줘야함! -->
+                    <td>{{ item.title }}</td>
+                 </router-link>
              </tr>
          </tbody>
      </table>
@@ -19,8 +22,7 @@
 </template>
 
 <script>
-import { fetchProdsList } from '../api/index.js';
-// import axios from 'axios';
+import { fetchVehiclesList } from '../../api/index.js';
 
 export default {
     data() {
@@ -29,7 +31,7 @@ export default {
         }
     },
    created (){
-    fetchProdsList()
+    fetchVehiclesList()
             .then( (res) => {
                 console.log(res);
                 this.datas = res.data.data;
