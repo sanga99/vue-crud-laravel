@@ -8,9 +8,15 @@ function fetchProdsList(){
     return axios.get(`${config.baseUrl}/api/v1/prods`);
 }
 
+// function fetchProdView(){
+//     return axios.get(`${config.baseUrl}/api/v1/prods/${this.$route.params.id}`)
+// }
+// (???) 여기서 ${this.$route.params.id} 부르면 안됨. 왜지
+
 function fetchPkgsList(){
     return axios.get(`${config.baseUrl}/api/v1/pkgs`);
 }
+
 
 function fetchVehiclesList(){
     return axios.get(`${config.baseUrl}/api/v1/vehicles`)
