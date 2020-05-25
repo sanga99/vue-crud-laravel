@@ -17,24 +17,24 @@ export default {
         }   
   },
   created(){
-    axios.get(`http://192.168.0.189:8082/api/v1/pkgs/${this.$route.params.id}`)
+    axios.get(`http://192.168.0.189:8082/api/v1/vehicles/${this.$route.params.id}`)
       .then( res => {
         this.content = JSON.stringify(res.data.data.title).replace(/"/gi, "");
       })
   },
   methods: {
-    createContent(){
-      const content = {  title : this.content };
+     createContent(){
+          const content = {  title : this.content };
 
-          axios.post(`http://192.168.0.189:8082/api/v1/pkgs`, content)
+          axios.post(`http://192.168.0.189:8082/api/v1/vehicles`, content)
             .then(() => {
-                this.$router.push('/pkgs')
+                this.$router.push('/vehicles')
             })
             .catch((err) => {
                 console.log(err);
             })
 
-    },
+      }
   },
 
 }

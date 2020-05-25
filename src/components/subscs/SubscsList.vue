@@ -1,6 +1,7 @@
 <template>
   <div>
       <h2>Subscs</h2>
+       <router-link to="/subscs/create" style="margin-left:250px;"  tag="button">Create</router-link>
      <table style="margin-left:350px; text-align: center;">
          <thead>
              <tr>

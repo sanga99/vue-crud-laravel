@@ -1,6 +1,8 @@
 <template>
   <div>
       <h2>Prods</h2>
+      <!-- <button @click="createContent">Create</button> -->
+     <router-link to="/prods/create" style="margin-left:250px;"  tag="button">Create</router-link>
      <table style="margin-left:350px; text-align: center;">
          <thead>
              <tr>
@@ -23,7 +25,7 @@
 
 <script>
 import { fetchProdsList } from '../../api/index.js';
-// import axios from 'axios';
+// import { ProdCreate } from './ProdCreate';
 
 export default {
     data() {
@@ -52,7 +54,15 @@ export default {
                 console.log(err);
             });
 
-   }
+   },
+   methods: {
+    //    createContent(){
+    //        this.$router.push({
+    //            path: '/prods/create',
+    //            component: ProdCreate,
+    //        })
+    //    }
+   },
 
 }
 </script>
