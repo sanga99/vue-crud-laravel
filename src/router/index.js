@@ -16,6 +16,12 @@ import PkgUpdate from '../components/pkgs/PkgUpdate.vue';
 import VehicleUpdate from '../components/vehicles/VehicleUpdate.vue';
 import SubscUpdate from '../components/subscs/SubscUpdate.vue';
 
+import ProdCreate from '../components/prods/ProdCreate.vue';
+import PkgCreate from '../components/pkgs/PkgCreate.vue';
+import VehicleCreate from '../components/vehicles/VehicleCreate.vue';
+import SubscCreate from '../components/subscs/SubscCreate.vue';
+
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -31,6 +37,11 @@ const router = new VueRouter({
             component: ProdsList,
         },
         {
+            path: '/prods/create',
+            component: ProdCreate,
+        },
+        // (주의) /:id 보다 아래에 있으면 제대로 작동하지 않음!! 
+        {
             path: '/prods/:id',
             component: ProdView,
         },
@@ -38,10 +49,18 @@ const router = new VueRouter({
             path: '/prods/update/:id',
             component: ProdUpdate,
         },
+        // {  ( => 제대로 작동 X )
+        //     path: '/prods/create',
+        //     component: ProdCreate,
+        // },
         // pkgs
         {
             path: '/pkgs',
             component: PkgsList,
+        },
+        {
+            path: '/pkgs/create',
+            component: PkgCreate
         },
         {
             path: '/pkgs/:id',
@@ -57,6 +76,10 @@ const router = new VueRouter({
             component: Vehicles,
         },
         {
+            path: '/vehicles/create',
+            component: VehicleCreate
+        },
+        {
             path: '/vehicles/:id',
             component: VehicleView,
         },
@@ -68,6 +91,10 @@ const router = new VueRouter({
         {
             path: '/subscs',
             component: SubscsList,
+        },
+        {
+            path: '/subscs/create',
+            component: SubscCreate
         },
         {
             path: '/subscs/:id',
