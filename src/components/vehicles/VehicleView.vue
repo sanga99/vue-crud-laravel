@@ -32,7 +32,13 @@ export default {
         })
       },
       deleteContent(){
-      
+        axios.delete(`http://192.168.0.189:8082/api/v1/vehicles/${this.$route.params.id}`)
+        .then(() => {
+          this.$router.push({ path: '/vehicles'});
+        })
+        .catch(err => {
+          throw err;
+        })
       },
 
   },

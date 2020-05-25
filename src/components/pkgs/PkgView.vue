@@ -34,7 +34,13 @@ export default {
       })
     },
     deleteContent(){
-     
+     axios.delete(`http://192.168.0.189:8082/api/v1/pkgs/${this.$route.params.id}`)
+      .then(() => {
+        this.$router.push({ path: '/pkgs'});
+      })
+      .catch(err => {
+        throw err;
+      })
     },
 
   },
